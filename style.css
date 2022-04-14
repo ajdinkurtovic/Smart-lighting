@@ -1,0 +1,100 @@
+/* body {
+	text-align: center;
+	background-image: url('https://cdn.best-support-pc.com/img/766/luchshie-komplekti-umnij-dom.jpg');
+	background-size: cover;
+	
+	
+} */
+h3{
+	position: absolute;
+}
+#video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+}
+img{
+	opacity: 0.5;
+}
+
+.wrapper{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+/* .progress {
+    margin: 30px auto;
+    width: 70%;
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	background-image: url('https://masterbedroomideas.eu/wp-content/uploads/2020/05/10-Contemporary-Bedroom-Wallpapers-To-Transform-Your-Private-Space-9.jpg');
+	background-size: cover;
+} */
+.progress {
+    margin: 30px auto;
+    width:70%;
+	height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	flex-direction: column;
+    
+	
+}
+
+.toggle-btn, .toggle-btn1, .toggle-btn2, .toggle-btn3{
+	width: 80px;
+	height: 40px;
+	background: gray;
+	border-radius: 30px;
+	padding:5px;
+	transition: all 300ms ease-in-out;
+}
+.toggle-btn > .inner-circle, .toggle-btn1 > .inner-circle, .toggle-btn2 > .inner-circle, .toggle-btn3 > .inner-circle{
+	width: 40px;
+	height: 40px;
+	background: #fff;
+	border-radius:50%;
+	transition: all 300ms ease-in-out;
+}
+.toggle-btn.active{
+	
+	background: #1aca38;
+	box-shadow: 0 0 10px #21f379, 0 0 40px #21f38a, 0 0 80px #21f344;
+	transition-delay: 0.5s;
+}
+.toggle-btn1.active{
+	
+	background: #f32121;
+	box-shadow: 0 0 10px #a0293d, 0 0 40px #f32133, 0 0 80px #f3214f;
+	transition-delay: 0.5s;
+}
+.toggle-btn2.active{
+	
+	background: #f3d421;
+	box-shadow: 0 0 10px #f3de21, 0 0 40px #f3e521, 0 0 80px #caf703;
+	transition-delay: 0.5s;
+}
+.toggle-btn3.active{
+	background: #a3f321;
+	box-shadow: 0 0 10px #a3f321, 0 0 40px #a3f321, 0 0 80px #a3f321;
+	transition-delay: 0.5s;
+}
+.toggle-btn.active>.inner-circle,.toggle-btn1.active>.inner-circle,.toggle-btn2.active>.inner-circle,.toggle-btn3.active>.inner-circle{
+	margin-left: 40px;
+}
+.icon1{	
+	color: rgb(10, 5, 5);
+	margin: 10px auto;
+}

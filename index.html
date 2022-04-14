@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IOT</title>
+       
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.4/css/all.css">
+        
+        <link rel="stylesheet" type="text/css" href ="style.css">
+    </head>
+    <body>
+        
+        <h3 class="font-bold text-3xl" id="random"></h3>
+        
+         <video id="video" src="media/pocetniVideo.mp4" autoplay muted></video> 
+        <div class="wrapper">	
+            <div class="progress">
+                <a class = "icon1" >
+                    <i class="fas fa-4x fa-bath"></i>
+                </a>
+                <div class= "toggle-btn" id="unact">
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+                <div class= "toggle-btn active" id="act" >
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+            </div>
+    
+            <div class="progress">
+                <a class = "icon1" >
+                    <i class="fas fa-4x fa-utensils"></i>
+                </a>
+                <div class= "toggle-btn1" id="unact1">
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+                <div class= "toggle-btn1 active" id="act1" >
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="progress">
+              
+                <a class = "icon1" >
+                    <i class="fas fa-4x fa-tv"></i>
+                </a>
+                <div class= "toggle-btn2" id="unact2">
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+                <div class= "toggle-btn2 active" id="act2" >
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+            </div>
+            <div class="progress">
+                <a class = "icon1" >
+                    <i class="fas fa-4x fa-bed"></i>
+                </a>
+                <div class= "toggle-btn3" id="unact3">
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+                <div class= "toggle-btn3 active" id="act3" >
+                    <div class= "inner-circle">
+        
+                    </div>
+                </div>
+            </div>	
+        </div>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+            import { getDatabase, ref, set,  onValue } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyAdyK2-a8n9V5A-tBiAvWXOD8--dqILDXg",
+              authDomain: "fir-36be1.firebaseapp.com",
+              databaseURL: "https://fir-36be1-default-rtdb.firebaseio.com",
+              projectId: "fir-36be1",
+              storageBucket: "fir-36be1.appspot.com",
+              messagingSenderId: "224501640732",
+              appId: "1:224501640732:web:c1014cbf6fd51c58f979d9",
+              measurementId: "G-VXH53MNKRE"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+          
+      
+      
+
+    const db = getDatabase();
+    document.getElementById("act").style.display = "none";
+     document.getElementById("act1").style.display = "none";
+    document.getElementById("act2").style.display = "none";
+     document.getElementById("act3").style.display = "none";
+ 
+ $(document).ready(function(){
+    const db = getDatabase();
+
+
+
+
+    $(".toggle-btn").click(function(){
+		
+        const db = getDatabase();
+		if(db.Led1Status == "ON"){    // post to firebase
+			
+            set(ref(db,'Led1Status'),{
+                status:"OFF"
+            });
+			db.Led1Status = "OFF";
+            video.setAttribute("src", "media/wcGasi.mp4");
+            document.getElementById("unact").style.display = "block";
+          document.getElementById("act").style.display = "none";
+          
+		} else {
+            set(ref(db,'Led1Status'),{
+                status:"ON"
+            });
+			db.Led1Status = "ON";
+            video.setAttribute("src", "media/wcPali.mp4");
+            document.getElementById("unact").style.display = "none";
+          document.getElementById("act").style.display = "block";
+		}
+	})
+
+    
+    $(".toggle-btn1").click(function(){
+		
+        const db = getDatabase();
+		if(db.Led2Status == "ON"){    // post to firebase
+			
+            set(ref(db,'Led2Status'),{
+                status:"OFF"
+            });
+			db.Led2Status = "OFF";
+            video.setAttribute("src", "media/kuhinjaUgasi.mp4");
+            document.getElementById("unact1").style.display = "block";
+          document.getElementById("act1").style.display = "none";
+		} else {
+            set(ref(db,'Led2Status'),{
+                status:"ON"
+            });
+			db.Led2Status = "ON";
+            video.setAttribute("src", "media/kuhinja.mp4");
+            document.getElementById("unact1").style.display = "none";
+          document.getElementById("act1").style.display = "block";
+		}
+	})
+    
+    $(".toggle-btn2").click(function(){
+		
+        const db = getDatabase();
+		if(db.Led3Status == "ON"){    // post to firebase
+			
+            set(ref(db,'Led3Status'),{
+                status:"OFF"
+            });
+			db.Led3Status = "OFF";
+            video.setAttribute("src", "media/dnevnaGasi.mp4");
+            document.getElementById("unact2").style.display = "block";
+          document.getElementById("act2").style.display = "none";
+		} else {
+            set(ref(db,'Led3Status'),{
+                status:"ON"
+            });
+			db.Led3Status = "ON";
+            video.setAttribute("src", "media/dnevnaPali.mp4");
+            document.getElementById("unact2").style.display = "none";
+          document.getElementById("act2").style.display = "block";
+		}
+	})
+
+    $(".toggle-btn3").click(function(){
+		
+        const db = getDatabase();
+		if(db.Led4Status == "ON"){    // post to firebase
+			
+            set(ref(db,'Led4Status'),{
+                status:"OFF"
+            });
+			db.Led4Status = "OFF";
+            video.setAttribute("src", "media/sobaGasi.mp4");
+            document.getElementById("unact3").style.display = "block";
+          document.getElementById("act3").style.display = "none";
+		} else {
+            set(ref(db,'Led4Status'),{
+                status:"ON"
+            });
+			db.Led4Status = "ON";
+            video.setAttribute("src", "media/sobaPali.mp4");
+            document.getElementById("unact3").style.display = "none";
+          document.getElementById("act3").style.display = "block";
+		}
+	})
+
+   
+
+
+   
+    
+    
+ });
+    const stanje=ref(db, 'RandStatus');
+    onValue(stanje,(snapshot)=>{
+        const data=snapshot.val();
+        $('#random').html(data);
+        console.log(data);
+    })
+        </script>
+        
+        <script>
+
+        </script>
+    </body>
+</html>
